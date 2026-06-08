@@ -1,0 +1,12 @@
+# dependencies
+node_modules/
+
+# build files
+dist/
+build/
+
+# environment file
+.env
+
+# git internal files (optional safety)
+.git
