@@ -1,20 +1,14 @@
 package com.taskmanager.server.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
 public class LoginResponse {
 
     private String token;
     private Long id;
-
-    public LoginResponse(String token, Long id) {
-        this.token = token;
-        this.id = id;
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public Long getId() {
-        return id;
-    }
 }

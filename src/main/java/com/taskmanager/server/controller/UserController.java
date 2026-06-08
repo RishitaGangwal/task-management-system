@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users")                   //base URL for all APIs in this controller
+@RequestMapping("/api/v1/users")                   //base URL for all APIs in this controller
 public class UserController {
 
     @Autowired

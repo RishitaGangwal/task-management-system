@@ -60,7 +60,7 @@ public class TaskService {
         return mapToDTO(saved);
     }
 
-    @Cacheable(value = "tasks", key="#userId")
+//    @Cacheable(value = "tasks", key="#userId")
     public List<TaskDTO> getTasksByUser(Long userId){
 
         System.out.println("DB Hit");
@@ -71,7 +71,7 @@ public class TaskService {
                 .toList();
     }
 
-    @CacheEvict(value = "tasks", allEntries = true)
+//    @CacheEvict(value = "tasks", allEntries = true)
     public TaskDTO updateTask(Long id, TaskDTO dto){
 
         Task task = taskRepository.findById(id)

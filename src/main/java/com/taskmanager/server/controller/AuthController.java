@@ -3,29 +3,33 @@ package com.taskmanager.server.controller;
 import com.taskmanager.server.dto.LoginRequest;
 import com.taskmanager.server.dto.LoginResponse;
 import com.taskmanager.server.entity.User;
-import com.taskmanager.server.util.JwtUtil;
+import com.taskmanager.server.service.AuthService;
+import com.taskmanager.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/v1/auth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AuthController {
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private UserService userService;
 
-    @PostMapping("/login")
-    public LoginResponse login(@RequestBody LoginRequest request){
+    @Autowired
+    private AuthService authService;
 
-        if(request.getEmail().equals("admin@gmail.com") && request.getPassword().equals("123450")){
-            String token =  jwtUtil.generateToken(request.getEmail());
-
-            return new LoginResponse(token,1L);
-
-        }
-
-        return null;
+    // Register new user
+    @PostMapping("/register")
+    public User register(@RequestBody User user){
+        return userService.createUser(user);
     }
 
+    // Login user
+    @PostMapping("/login")
+    public LoginResponse login(
+            @RequestBody LoginRequest request){
+
+        return authService.login(request);
+    }
 }

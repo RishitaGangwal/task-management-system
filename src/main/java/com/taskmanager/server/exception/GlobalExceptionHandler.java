@@ -10,9 +10,15 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
+    // Handle custom runtime exceptions
     @ExceptionHandler(RuntimeException.class)
-    public String handle(RuntimeException e){
-        return e.getMessage();
+    public Map<String, String> handle(RuntimeException e){
+
+        Map<String, String> error = new HashMap<>();
+
+        error.put("message", e.getMessage());
+
+        return error;
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
