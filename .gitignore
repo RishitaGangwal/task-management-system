@@ -1,14 +1,14 @@
 # Dependencies
 node_modules/
 
-# React build
+# React build output
 build/
 dist/
 
-# Spring Boot
+# Spring Boot build
 target/
 
-# Environment files
+# Environment variables
 .env
 
 # Logs
@@ -21,3 +21,6 @@ Thumbs.db
 # IDE files
 .idea/
 .vscode/
+
+# IntelliJ project files
+*.iml
